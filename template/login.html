@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>BookMyShow</title>
+  </head>
+  <body>
+    <div class = "form-container">
+      <form method="post" action="" class="login-form">
+        <center><div class="error">{{.}}</div></center><br/>
+        <center><input type="text" name="username" placeholder="Email id" class="form-textbox" required/></center><br/>
+        <center><input type="text" name="password" placeholder="Password" class="form-textbox" required/></center><br/>
+        <center><input type="submit" value="Login" class="form-submit"/></center><br/>
+        <center>Don't have an <a href="/signup">account</a>?</center><br/>
+        <center><a href = "/forgot">Forgot Password<a/>?</center><br/>
+      </form>
+    </div>
+  </body>
+</html>

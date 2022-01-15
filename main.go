@@ -6,15 +6,19 @@ import (
   "os"
   "path/filepath"
   "html/template"
+
+  "example.com/authentication/authent"
 )
 
 var tpl *template.Template
 
-func index(w http.ResponseWriter, r *http.Request){
+func init(){
   tpl = template.Must(template.ParseGlob("template/*"))
-  tpl.ExecuteTemplate(w, "index.html", nil)
 }
 
+func index(w http.ResponseWriter, r *http.Request){
+  fmt.Fprintf(w, "Welcome to BookMyShow")
+}
 
 func main(){
   mux := http.NewServeMux()
@@ -26,6 +30,7 @@ func main(){
 
   mux.Handle("/static/", http.StripPrefix("/static",  files))
   mux.HandleFunc("/", index)
+  mux.HandleFunc("/login", authent.Login)
 
   http.ListenAndServe(":8080", mux)
 }
