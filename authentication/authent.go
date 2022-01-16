@@ -30,7 +30,7 @@ func Login(w http.ResponseWriter, r *http.Request){
     ok, session := LoggedIn(r); if ok{
       // redirect
       fmt.Println("Logged in", session.UUID)
-      return
+      http.Redirect(w, r, "/", 302)
     } else{
       tpl.ExecuteTemplate(w, "login.html", nil)
     }
@@ -56,10 +56,15 @@ func Login(w http.ResponseWriter, r *http.Request){
     if errorMsg == ""{
       CreateSession(w, user.Email)
       fmt.Println("Loggedin succesfully")
-      //redirect
+      http.Redirect(w, r, "/", 302)
     } else{
       tpl.ExecuteTemplate(w, "login.html", errorMsg)
     }
 
   }
+}
+
+func Logout(w http.ResponseWriter, r *http.Request){
+  EndSession(w, r)
+  http.Redirect(w, r, "/", 302)
 }

@@ -12,6 +12,9 @@ type Session struct{
 
 func SessionFromSqlRow(row *sql.Row) (*Session){
   var session Session
+  if row == nil{
+    return nil
+  }
   err := row.Scan(&session.UUID, &session.Email)
   if err == nil{
     return &session
