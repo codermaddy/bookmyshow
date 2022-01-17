@@ -2,7 +2,6 @@ package models
 
 import (
   "fmt"
-  "database/sql"
   "time"
 )
 
@@ -12,11 +11,13 @@ type Event struct{
   Time time.Time
 }
 
-func EventFromSqlQuery(rows *sql.Rows)(*Event){
+type Scannable interface{
+  Scan(dest ...interface{}) error
+}
+
+func EventFromSqlQuery(row Scannable)(*Event){
   var event Event
-  //var tmpTime []uint8
-  err := rows.Scan(&event.Id, &event.Name, &event.Time); if err == nil{
-    //event.Time = tmpTime.Time;
+  err := row.Scan(&event.Id, &event.Name, &event.Time); if err == nil{
     return &event
   } else{
     fmt.Println(err)

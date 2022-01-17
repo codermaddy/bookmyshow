@@ -104,3 +104,27 @@ ul {
   height: 50px;
   padding: 8px 24px;
 }
+
+.radio-button{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-top: 25px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid #88f;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+}
+
+.radio-button:checked{
+  border: 6px solid blue;
+}
+
+#price{
+  margin-top: 13px;
+  font-size: 50px;
+  color: blue;
+}

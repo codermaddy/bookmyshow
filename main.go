@@ -36,6 +36,7 @@ func main(){
   mux.Handle("/static/", http.StripPrefix("/static",  files))
   mux.HandleFunc("/", index)
   mux.HandleFunc("/events", event.Events)
+  mux.HandleFunc("/book", event.BookTicket)
   mux.HandleFunc("/login", authent.Login)
   mux.HandleFunc("/logout", authent.Logout)
 

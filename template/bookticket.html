@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <script>
+      var price = {
+        "Gold" : "₹1000",
+        "Silver" : "₹700",
+        "Bronze" : "₹300"
+      };
+      function handleClick(ticketType){
+        document.getElementById('price').textContent = price[ticketType.value];
+      }
+    </script>
+  </head>
+  <body>
+    <header>{{template "navbar.html"}}</header>
+    <div class="event-card">
+      <div class="event-image">
+        <img src="../static/event.png" alt="Event Image" style="height:100px;"/>
+      </div>
+      <div class="event-detail">
+        <span style="font-weight:600; margin:20px;">{{.Name}}</span><br/>
+        <span style="margin:20px;font-size:13px;">{{.Time}}</span>
+      </div>
+    </div>
+    <div class="form-container" style="height:220px;">
+      <form class="login-form" name="ticketForm" style="height:220px;" method="post" action="/book?id={{.Id}}">
+        <center><input name = "attendee" type="text" placeholder="Name of Attendee" class="form-textbox" required/></center>
+        <center>
+          <div clas="seat-selection">
+            <input type="radio" name="ticketType" id="ticket-type1" class="radio-button" value="Gold" onclick="handleClick(this);" checked><label for="ticket-type1">Gold</label>
+            <input type="radio" name="ticketType" id="ticket-type2" class="radio-button" value="Silver" onclick="handleClick(this);"><label for="ticket-type2">Silver</label>
+            <input type="radio" name="ticketType" id="ticket-type3" class="radio-button" value="Bronze" onclick="handleClick(this);"><label for="ticket-type3">Bronze</label>
+          </div>
+        </center>
+        <center>
+          <div id="price">
+            ₹1000
+          </div>
+        </center>
+        <center><input type="submit" value="Checkout" class="book-ticket-button"/></center>
+      </form>
+    </div>
+  </body>
+</html>
