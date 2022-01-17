@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+    <header>{{template "navbar.html"}}</header>
+    {{range .}}
+      <div class="event-card">
+        <div class="event-image">
+          <img src="../static/event.png" alt="Event Image" style="height:100px;"/>
+        </div>
+        <div class="event-detail">
+          <span style="margin:20px;"><b>Name of Event:</b> {{.event.Name}}</span><br/>
+          <span style="margin:20px;"><b>Attendee:</b> <u>{{.ticket.Attendee}}</u></span><br/>
+          <span style="margin:20px;"><b>Class:</b> {{.ticket.TicketType}}</span><br/>
+          <span style="margin:20px;font-size:15px;"><b>Venue:</b> {{.event.Venue}}</span><br/>
+          <span style="margin:20px;font-size:13px;"><b>Time:</b> {{.event.Time}}</span>
+        </div>
+      </div>
+    {{end}}
+  </body>
+</html>

@@ -1,7 +1,6 @@
 package main
 
 import (
-  "fmt"
   "net/http"
   "os"
   "path/filepath"
@@ -18,11 +17,7 @@ func init(){
 }
 
 func index(w http.ResponseWriter, r *http.Request){
-  ok, _ := authent.LoggedIn(r); if ok{
-    fmt.Fprintf(w, "Welcome to bookMYshoW")
-  } else{
-    http.Redirect(w, r, "/login", 302)
-  }
+  http.Redirect(w, r, "/events", 302)
 }
 
 func main(){
@@ -37,6 +32,7 @@ func main(){
   mux.HandleFunc("/", index)
   mux.HandleFunc("/events", event.Events)
   mux.HandleFunc("/book", event.BookTicket)
+  mux.HandleFunc("/tickets", event.Tickets)
   mux.HandleFunc("/login", authent.Login)
   mux.HandleFunc("/logout", authent.Logout)
 

@@ -17,8 +17,10 @@
           <img src="../static/event.png" alt="Event Image" style="height:100px;"/>
         </div>
         <div class="event-detail">
-          <span style="font-weight:600; margin:20px;">{{.Name}}</span></b><br/>
-          <span style="margin:20px;">{{.Time}}</span>
+          <span style="font-weight:600; margin:20px;">{{.Name}}</span><br/>
+          <span style="margin:20px;">By {{.Organizer}}</span><br/>
+          <span style="margin:20px;">At {{.Venue}}</span><br/>
+          <span style="margin:20px; font-size:12px;">On {{.Time}}</span>
         </div>
         <button class="book-ticket-button" onclick="redirect( {{.Id}} )">Book Ticket</button>
       </div>
