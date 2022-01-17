@@ -51,10 +51,10 @@
   font-style: italic;
 }
 
-button {
+.logout-button {
   border: none;
   border-radius: 8px;
-  background: rebeccapurple;
+  background: #4287f5;
   color: white;
   padding: 8px 24px;
 }
@@ -77,4 +77,30 @@ ul {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.event-card{
+  display: flex;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-height: 100px;
+  margin: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-image{
+  height:100px;
+}
+
+.event-detail{
+  flex: 1 1 0;
+}
+
+.book-ticket-button{
+  border: none;
+  margin-right: 15px;
+  background: rebeccapurple;
+  color: white;
+  height: 50px;
+  padding: 8px 24px;
 }

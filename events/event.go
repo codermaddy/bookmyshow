@@ -28,7 +28,7 @@ func checkError(err error){
 
 func Events(w http.ResponseWriter, r *http.Request){
   ok, _ := authent.LoggedIn(r); if ok{
-    stmt, err := db.Prepare("SELECT * FROM events WHERE time > ?")
+    stmt, err := db.Prepare("SELECT * FROM events WHERE time > ? ORDER BY time")
     checkError(err)
 
     rows, err := stmt.Query(time.Now())

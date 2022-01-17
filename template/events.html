@@ -3,12 +3,25 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+      function redirect(x){
+        window.location.href='/book?id='+x;
+      }
+    </script>
   </head>
   <body>
     <header>{{template "navbar.html"}}</header>
     {{range .}}
-      {{.Name}}<br/>
-      {{.Time}}<br/>
+      <div class="event-card">
+        <div class="event-image">
+          <img src="../static/event.png" alt="Event Image" style="height:100px;"/>
+        </div>
+        <div class="event-detail">
+          <span style="font-weight:600; margin:20px;">{{.Name}}</span></b><br/>
+          <span style="margin:20px;">{{.Time}}</span>
+        </div>
+        <button class="book-ticket-button" onclick="redirect( {{.Id}} )">Book Ticket</button>
+      </div>
     {{end}}
   </body>
 </html>
